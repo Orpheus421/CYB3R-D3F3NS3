@@ -23,17 +23,17 @@ class Enemy:
 		self.col = color
 	
 	def move(self):
-		if self.y < .22:
+		if self.y < .195:
 			self.y += .001
-		elif self.x < 0.8 and self.y < .4:
+		elif self.x < 0.61 and self.y < .4:
 			self.x += .001
-		elif self.y < .5:
+		elif self.y < .475:
 			self.y += .001
-		elif self.x > .06 and self.y < .7:
+		elif self.x > .115 and self.y < .7:
 			self.x -= .001
-		elif self.y < .75 and self.x < 0.1:
+		elif self.y < .75 and self.x < 0.15:
 			self.y += .001
-		elif self.x < 0.8:
+		elif self.x < 0.761:
 			self.x += .001
 		else:
 			return 1
@@ -50,22 +50,22 @@ class Enemy:
 class Slots:
 	def __init__ (self, position1, position2, size1, size2):
 		self.empty = Button(position1, size1, 1, "empty")
-		self.buy = Button(position2, size2, 0, "buy")
+		self.buy = Button(position2, size2, 1, "buy")
 		self.tower1 = Button(position1, size1, 0, "tower1")
 		self.upgrade = Button(position2, size2, 0, "upgrade")
 		self.tower2 = Button(position1, size1, 0, "tower2")
 		
-	def print(self, screen, x, y, w, h):
+	def display(self, screen, x, y, w, h):
 		if self.empty.visible:
-			self.empty.print(screen, x, y, w, h)
+			self.empty.display(screen, x, y, w, h)
 			if self.buy.visible:
-				self.buy.print(screen, x, y, w, h)
+				self.buy.display(screen, x, y, w, h)
 		elif self.tower1.visible:
-			self.tower1.print(screen, x, y, w, h)
+			self.tower1.display(screen, x, y, w, h)
 			if self.upgrade.visible: 
-				self.upgrade.print(screen, x, y, w, h)
+				self.upgrade.display(screen, x, y, w, h)
 		else:
-			self.tower2.print(screen, x, y, w, h)
+			self.tower2.display(screen, x, y, w, h)
 
 class Button:
 	def __init__ (self,position,size,visible,type):
@@ -87,5 +87,6 @@ class Button:
 		else:
 			self.color=(0, 0, 128)
 		
-	def print(self, screen, x, y, w, h):
-		pg.draw.rect(screen, self.color, ((self.x*w)+x, (self.y*h)+y, self.h, self.w))
+	def display(self, screen, x, y, w, h):
+		pg.draw.ellipse(screen, self.color, 
+		((self.x*w)+x, (self.y*h)+y, int(self.h*h), int(self.w*h)))
