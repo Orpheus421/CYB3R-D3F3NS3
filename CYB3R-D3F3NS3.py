@@ -17,7 +17,7 @@ done = False
 
 clock = pg.time.Clock()
 
-map=pg.image.load("map.png")
+map=pg.image.load("better-map.png")
 scaled_map, x, y, w, h =scale_and_new_coords(map)
 enemy_size=int(0.06*h)
 screen.fill((0, 0, 0))
@@ -43,10 +43,9 @@ while not done:
 	
 	num=int(rdm.random()*100)
 	if num<2 and cooldown<0:
-		color=random_color(0)
 		if num: position=(0.6, -0.08)
 		else: position=(-0.08, 0.25)
-		new_enemy=Enemy(position, color)
+		new_enemy=Enemy(position, (200, 0, 0))
 		enemies.append(new_enemy)
 		cooldown=30
 	

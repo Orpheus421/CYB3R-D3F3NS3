@@ -15,15 +15,6 @@ def scale_and_new_coords(map):
 	scaled_map=pg.transform.smoothscale(map, (screen_w, screen_h))
 	scaled_map.convert()
 	return (scaled_map, x, y, screen_w, screen_h)
-
-def random_color(flag):
-	color=(int(rdm.random()*2)*255, int(rdm.random()*2)*255, int(rdm.random()*2)*255)
-	if (color != (0,0,0)) and (color != (255, 255, 255)):
-		return color
-	elif (flag>5):
-		return (218,165,32)
-	else:
-		return random_color(flag+1)
 	
 #Enemy class
 class Enemy:
@@ -61,8 +52,8 @@ class Slots:
 		self.empty = Button(position1, size1, 1, "empty")
 		self.buy = Button(position2, size2, 0, "buy")
 		self.tower1 = Button(position1, size1, 0, "tower1")
-		self.upgrade = Button(position2, size2, 0 "upgrade")
-		self.tower2 = Button(position1, size1, 0 "tower2")
+		self.upgrade = Button(position2, size2, 0, "upgrade")
+		self.tower2 = Button(position1, size1, 0, "tower2")
 		
 	def print(self, screen, x, y, w, h):
 		if self.empty.visible:
