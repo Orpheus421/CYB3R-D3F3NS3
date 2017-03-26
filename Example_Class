@@ -1,0 +1,9 @@
+class Measurement:
+    def __init__(self, value, uncertainty=0):
+        self.val = value
+        self.unc = uncertainty
+
+# Part b
+
+    def __str__(self):
+        return str(self.val)+" "+chr(177)+" "+str(self.unc)
