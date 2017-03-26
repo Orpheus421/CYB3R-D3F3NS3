@@ -23,18 +23,18 @@ class Enemy:
 	
 	def string(self):
 		if self.pos[1] < .22:
-			self.pos[1]+.05
+			self.pos[1]+.002
 		elif self.pos[0] < 0.8 and self.pos[1] < .4:
-			self.pos[0] + .05
+			self.pos[0] + .002
 		elif self.pos[1] < .5:
-			self.pos[1] + .05
+			self.pos[1] + .002
 		elif self.pos[0] > .06 and self.pos[1] < .7:
-			self.pos[0] - .05
+			self.pos[0] - .002
 		elif self.pos[1] < .75:
-			self.pos[1] + .05
+			self.pos[1] + .002
 		elif self.pos[0] < 0.8:
-			self.pos[0] + .05
+			self.pos[0] + .002
 		else:
-			eself.pos[0]it()
+			exit()
 		return self.pos
 		
