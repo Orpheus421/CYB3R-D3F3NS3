@@ -23,17 +23,17 @@ class Enemy:
 		self.col = color
 	
 	def move(self):
-		if self.y < .22:
+		if self.y < .195:
 			self.y += .001
-		elif self.x < 0.8 and self.y < .4:
+		elif self.x < 0.61 and self.y < .4:
 			self.x += .001
-		elif self.y < .5:
+		elif self.y < .475:
 			self.y += .001
-		elif self.x > .06 and self.y < .7:
+		elif self.x > .115 and self.y < .7:
 			self.x -= .001
-		elif self.y < .75 and self.x < 0.1:
+		elif self.y < .75 and self.x < 0.15:
 			self.y += .001
-		elif self.x < 0.8:
+		elif self.x < 0.761:
 			self.x += .001
 		else:
 			return 1
@@ -88,4 +88,5 @@ class Button:
 			self.color=(0, 0, 128)
 		
 	def print(self, screen, x, y, w, h):
-		pg.draw.rect(screen, self.color, ((self.x*w)+x, (self.y*h)+y, self.h, self.w))
+		pg.draw.circle(screen, self.color, 
+		((self.x*w)+x, (self.y*h)+y), int(self.h*h), int(self.w*h)))
