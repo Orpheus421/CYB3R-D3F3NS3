@@ -16,3 +16,25 @@ def scale_and_new_coords(map):
 	return (scaled_map, x, y, screen_w, screen_h)
 	
 #Enemy class
+class Enemy:
+	def __init__(self,position,color)
+		self.pos = positon 
+		self.col = color
+	
+	def string(self):
+		if self.pos[1] < .22:
+			self.pos[1]+.05
+		elif self.pos[0] < 0.8 and self.pos[1] < .4:
+			self.pos[0] + .05
+		elif self.pos[1] < .5:
+			self.pos[1] + .05
+		elif self.pos[0] > .06 and self.pos[1] < .7:
+			self.pos[0] - .05
+		elif self.pos[1] < .75:
+			self.pos[1] + .05
+		elif self.pos[0] < 0.8:
+			self.pos[0] + .05
+		else:
+			eself.pos[0]it()
+		return self.pos
+		
