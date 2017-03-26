@@ -54,3 +54,32 @@ class Enemy:
 	def display(self, screen, x, y, w, h, enemy_size):
 				pg.draw.rect(screen, self.col, 
 				((self.x*w)+x, (self.y*h)+y, enemy_size, enemy_size))
+			
+# NEEDS HEAVY EDITING
+class Slots:
+	def __init__ (self, position1, position2, size1, size2):
+		self.empty = Button(position1, size1, 1, "empty")
+		self.buy = Button(position2, size2, 0, "buy")
+		self.tower1 = Button(position1, size1, 0, "tower1")
+		self.upgrade = Button(position2, size2, 0 "upgrade")
+		self.tower2 = Button(position1, size1, 0 "tower2")
+		
+	def print(self):
+		if self.empty is visible
+			empty.print
+			if self.but is visible
+				buy.print
+		elif self.tower1 is visible
+			tower1.print
+			if self.upgrade is visible 
+				upgrade.print
+		else:
+			tower2.print
+
+class Button:
+	def __init__ (self,position,size,visible,type):
+		self.x = position[0]
+		self.y = position[0]
+		self.h = height[0]
+		self.w = width[0]
+		self.
