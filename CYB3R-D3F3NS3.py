@@ -1,5 +1,6 @@
 import pygame as pg
 from CD_classes_and_functions import *
+import random as rdm
 
 # Official Shade of Green: "0fc007"
 
@@ -14,18 +15,15 @@ pg.display.set_icon(logo)
 
 done = False
 
-# DELETE EVENTUALLY
-
-box_x = 30
-box_y = 30
-
-# !!
-
 clock = pg.time.Clock()
 
 map=pg.image.load("map.png")
 scaled_map, x, y, w, h =scale_and_new_coords(map)
+enemy_size=int(0.06*h)
 screen.fill((0, 0, 0))
+
+enemies=[]
+cooldown=0
 
 while not done:
 	for event in pg.event.get():
@@ -37,18 +35,33 @@ while not done:
 			new_size= event.size
 			screen=pg.display.set_mode((new_size), pg.RESIZABLE)
 			scaled_map, x, y, w, h =scale_and_new_coords(map)
-	
-# DELTE EVENTUALLY
-	pressed = pg.key.get_pressed()
-	if pressed[pg.K_UP]: box_y -= 3
-	if pressed[pg.K_DOWN]: box_y += 3
-	if pressed[pg.K_LEFT]: box_x -= 3
-	if pressed[pg.K_RIGHT]: box_x += 3
-# !!
+			enemy_size=int(0.06*h)
 	
 	screen.blit(scaled_map, (x,y))
-
-	pg.draw.rect(screen, (0, 128, 255), pg.Rect(box_x, box_y, 60, 60))
+	
+	cooldown -=1
+	
+	num=int(rdm.random()*100)
+	if num<2 and cooldown<0:
+		color=random_color(0)
+		if num: position=(0.6, -0.08)
+		else: position=(-0.08, 0.25)
+		new_enemy=Enemy(position, color)
+		enemies.append(new_enemy)
+		cooldown=30
+	
+	for manny in enemies:
+		dead = manny.move()
+		if dead:
+			enemies.remove(manny)
+		manny.display(screen, x, y, w, h, enemy_size)
+		
+	if x:
+		pg.draw.rect(screen, (0,0,0),(0, 0, x, h))
+		pg.draw.rect(screen, (0,0,0),(w+x, 0, w+2*x, h))
+	elif y:
+		pg.draw.rect(screen, (0,0,0),(0, 0, w, y))
+		pg.draw.rect(screen, (0,0,0),(0, h+y, w, h+2*y))
 	
 	pg.display.flip()
 	clock.tick(60)
