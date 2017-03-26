@@ -27,8 +27,9 @@ cooldown=0
 
 all_slots=[]
 slot_data=[(0.35, 0.35)]
-for data in slot_data
-slot=Slots(data, (0.8, 0.3), (0.1, 0.1), (0.2, 0.08))
+for data in slot_data:
+	slot=Slots(data, (0.8, 0.3), (0.1, 0.1), (0.2, 0.08))
+	all_slots.append(slot)
 
 # Heart of the game
 while not done:
@@ -60,6 +61,9 @@ while not done:
 		if dead:
 			enemies.remove(manny)
 		manny.display(screen, x, y, w, h, enemy_size)
+		
+	for slot in all_slots:
+		slot.display(screen, x, y, w, h)
 		
 	if x:
 		pg.draw.rect(screen, (0,0,0),(0, 0, x, h))
