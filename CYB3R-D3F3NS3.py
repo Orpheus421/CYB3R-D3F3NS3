@@ -26,9 +26,9 @@ enemies=[]
 cooldown=0
 
 all_slots=[]
-slot_data=[(0.35, 0.35)]
+slot_data=[(0.26, 0.02), ( 0.47, 0.02), (0.21, 0.31), (0.47,0.31), (0.3, 0.59), (0.61, 0.59), (0.25, 0.86), (0.56, 0.86)]
 for data in slot_data:
-	slot=Slots(data, (0.8, 0.3), (0.1, 0.1), (0.2, 0.08))
+	slot=Slots(data, (0.77, 0.3), (0.1, 0.1), (0.2, 0.08))
 	all_slots.append(slot)
 
 # Heart of the game
