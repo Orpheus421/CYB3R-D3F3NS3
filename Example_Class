@@ -5,5 +5,5 @@ class Measurement:
 
 # Part b
 
-    def __str__(self):
+    def string(self):
         return str(self.val)+" "+chr(177)+" "+str(self.unc)
