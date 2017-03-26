@@ -64,22 +64,37 @@ class Slots:
 		self.upgrade = Button(position2, size2, 0 "upgrade")
 		self.tower2 = Button(position1, size1, 0 "tower2")
 		
-	def print(self):
-		if self.empty is visible
-			empty.print
-			if self.but is visible
-				buy.print
-		elif self.tower1 is visible
-			tower1.print
-			if self.upgrade is visible 
-				upgrade.print
+	def print(self, screen, x, y, w, h):
+		if self.empty.visible:
+			self.empty.print(screen, x, y, w, h)
+			if self.buy.visible:
+				self.buy.print(screen, x, y, w, h)
+		elif self.tower1.visible:
+			self.tower1.print(screen, x, y, w, h)
+			if self.upgrade.visible: 
+				self.upgrade.print(screen, x, y, w, h)
 		else:
-			tower2.print
+			self.tower2.print(screen, x, y, w, h)
 
 class Button:
 	def __init__ (self,position,size,visible,type):
 		self.x = position[0]
-		self.y = position[0]
-		self.h = height[0]
-		self.w = width[0]
-		self.
+		self.y = position[1]
+		self.h = size[0]
+		self.w = size[1]
+		self.visible = visible
+		self.type = type
+		
+		if self.type == "empty":
+			self.color=(192, 192, 192)
+		elif self.type == "buy":
+			self.color=(0, 255, 0)
+		elif self.type == "tower1":
+			self.color=(0, 128, 128)
+		elif self.type == "upgrade":
+			self.color=(0, 255, 0)
+		else:
+			self.color=(0, 0, 128)
+		
+	def print(self, screen, x, y, w, h):
+		pg.draw.rect(screen, self.color, ((self.x*w)+x, (self.y*h)+y, self.h, self.w))
