@@ -13,8 +13,8 @@ pg.display.set_caption("CYB3R-D3F3NS3")
 logo=pg.image.load("C-D_logo.png")
 pg.display.set_icon(logo)
 
+# Initialization Stuff
 done = False
-
 clock = pg.time.Clock()
 
 map=pg.image.load("better-map.png")
@@ -25,6 +25,12 @@ screen.fill((0, 0, 0))
 enemies=[]
 cooldown=0
 
+all_slots=[]
+slot_data=[(0.35, 0.35)]
+for data in slot_data
+slot=Slots(data, (0.8, 0.3), (0.1, 0.1), (0.2, 0.08))
+
+# Heart of the game
 while not done:
 	for event in pg.event.get():
 		if event.type == pg.QUIT:
@@ -43,8 +49,8 @@ while not done:
 	
 	num=int(rdm.random()*100)
 	if num<2 and cooldown<0:
-		if num: position=(0.6, -0.08)
-		else: position=(-0.08, 0.25)
+		if num: position=(0.36, -0.08)
+		else: position=(-0.08, 0.12)
 		new_enemy=Enemy(position, (200, 0, 0))
 		enemies.append(new_enemy)
 		cooldown=30
